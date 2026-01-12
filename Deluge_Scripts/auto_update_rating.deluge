@@ -1,0 +1,19 @@
+leadId = input.leadId;
+
+lead = zoho.crm.getRecordById("Leads", leadId);
+source = lead.get("Lead_Source");
+
+updateMap = Map();
+
+if(source == "Cold Call")
+{
+    updateMap.put("Rating", "Hot");
+    info "Lead marked as Hot";
+}
+else
+{
+    updateMap.put("Rating", "Warm");
+    info "Lead marked as Warm";
+}
+
+zoho.crm.updateRecord("Leads", leadId, updateMap);
