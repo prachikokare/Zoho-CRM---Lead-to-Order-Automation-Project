@@ -1,0 +1,7 @@
+leadId = input.leadId;
+
+updateMap = Map();
+updateMap.put("Follow_up_Date", zoho.currentdate.addDay(3));
+
+zoho.crm.updateRecord("Leads", leadId, updateMap);
+info "Follow-up date set to 3 days from today";
